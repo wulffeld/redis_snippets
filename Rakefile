@@ -16,3 +16,13 @@ begin
 rescue LoadError
   puts "Jeweler (or a dependency) not available. Install it with: gem install jeweler"
 end
+
+desc "New release"
+task :new_release do |t|
+  `rake version:bump:patch`  # Updates VERSION.
+  `rake gemspec`
+  `git commit -am "Preparing new release."`
+  `rm -f pkg/*`
+  `rake build`
+  `rake rubygems:release`
+end
