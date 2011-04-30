@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{redis_snippets}
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Martin Moen Wulffeld"]
-  s.date = %q{2011-04-23}
+  s.date = %q{2011-04-30}
   s.description = %q{}
   s.email = %q{martin@wulffeld.org}
   s.extra_rdoc_files = [
@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
     "app/controllers/admin/snippets_controller.rb",
     "app/helpers/redis_snippets/snippets_helper.rb",
     "app/models/redis_snippets/snippets.rb",
-    "app/views/admin/ads/show.html.erb",
+    "app/views/admin/snippets/show.html.erb",
     "config/routes.rb",
     "lib/redis_snippets.rb",
     "lib/redis_snippets/railtie.rb",
