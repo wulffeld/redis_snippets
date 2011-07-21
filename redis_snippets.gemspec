@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{redis_snippets}
-  s.version = "0.0.3"
+  s.version = "0.0.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Martin Moen Wulffeld"]
-  s.date = %q{2011-05-24}
+  s.authors = [%q{Martin Moen Wulffeld}]
+  s.date = %q{2011-07-21}
   s.description = %q{}
   s.email = %q{martin@wulffeld.org}
   s.extra_rdoc_files = [
@@ -29,8 +29,8 @@ Gem::Specification.new do |s|
     "lib/redis_snippets/redis.rb",
     "redis_snippets.gemspec"
   ]
-  s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.7.2}
+  s.require_paths = [%q{lib}]
+  s.rubygems_version = %q{1.8.5}
   s.summary = %q{View snippets held in Redis storage.}
 
   if s.respond_to? :specification_version then
