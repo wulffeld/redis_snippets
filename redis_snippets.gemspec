@@ -4,19 +4,19 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{redis_snippets}
-  s.version = "0.0.4"
+  s.name = "redis_snippets"
+  s.version = "0.0.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = [%q{Martin Moen Wulffeld}]
-  s.date = %q{2011-07-21}
-  s.description = %q{}
-  s.email = %q{martin@wulffeld.org}
+  s.authors = ["Martin Moen Wulffeld"]
+  s.date = "2012-01-17"
+  s.description = ""
+  s.email = "martin@wulffeld.org"
   s.extra_rdoc_files = [
-    "README"
+    "README.md"
   ]
   s.files = [
-    "README",
+    "README.md",
     "Rakefile",
     "VERSION",
     "app/controllers/admin/snippets_controller.rb",
@@ -25,13 +25,14 @@ Gem::Specification.new do |s|
     "app/views/admin/snippets/show.html.erb",
     "config/routes.rb",
     "lib/redis_snippets.rb",
+    "lib/redis_snippets/help.rb",
     "lib/redis_snippets/railtie.rb",
     "lib/redis_snippets/redis.rb",
     "redis_snippets.gemspec"
   ]
-  s.require_paths = [%q{lib}]
-  s.rubygems_version = %q{1.8.5}
-  s.summary = %q{View snippets held in Redis storage.}
+  s.require_paths = ["lib"]
+  s.rubygems_version = "1.8.13"
+  s.summary = "View snippets held in Redis storage."
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
