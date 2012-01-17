@@ -1,12 +1,14 @@
 module RedisSnippets
   module SnippetsHelper
+    include RedisSnippets::Help
+
     def snippet_content(snippet_name)
-      RedisSnippets::Snippets.send(snippet_name)
+      RedisSnippets::Snippets.send(snippet_key(snippet_name))
     end
     
     # Return true if snippet has content.
     def snippet_has_content?(snippet_name)
-      !RedisSnippets::Snippets.send(snippet_name).blank?
+      !snippet_content(snippet_name).blank?
     end
     
     def snippet(snippet_name, classes=nil)

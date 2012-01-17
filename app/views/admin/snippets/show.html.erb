@@ -6,7 +6,7 @@
     <% RedisSnippetsEngine.config.redis_snippets[:keys].each do |key| %>
       <li>
         <%= label_tag key.to_s, key.to_s %>
-        <%= text_area_tag "snippets[#{key}]", RedisSnippets::Snippets.send(key), :cols => 120, :rows => 10 %>
+        <%= text_area_tag "snippets[#{key}]", RedisSnippets::Snippets.send(snippet_key(key)), :cols => 120, :rows => 10 %>
       </li>
     <% end -%>
     </ol>

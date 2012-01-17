@@ -7,3 +7,4 @@ end
 
 require 'redis_snippets/railtie'
 require 'redis_snippets/redis'
+require 'redis_snippets/help'
