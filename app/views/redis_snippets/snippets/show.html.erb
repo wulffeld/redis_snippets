@@ -1,9 +1,9 @@
 <h1>Snippets</h1>
 
-<%= form_tag admin_snippets_path, :method => :put, :class => "formtastic" do |f| %>
+<%= form_tag '', :method => :put, :class => "formtastic" do |f| %>
   <fieldset>
     <ol>
-    <% RedisSnippetsEngine.config.redis_snippets[:keys].each do |key| %>
+    <% RedisSnippets::Engine.config.redis_snippets[:keys].each do |key| %>
       <li>
         <%= label_tag key.to_s, key.to_s %>
         <%= text_area_tag "snippets[#{key}]", RedisSnippets::Snippets.send(snippet_key(key)), :cols => 120, :rows => 10 %>
