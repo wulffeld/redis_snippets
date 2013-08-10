@@ -1,10 +1,8 @@
 class RedisSnippets::SnippetsController < ApplicationController
   include RedisSnippets::Help
   
-  if respond_to?(:authenticate_admin_user!)
-    before_filter :authenticate_admin_user!
-  end
-  
+  before_filter :redis_snippets_authenticate_admin_user!
+
   layout 'admin'
 
   def show
@@ -18,5 +16,13 @@ class RedisSnippets::SnippetsController < ApplicationController
   
     flash[:notice] = 'Snippets updated.'
     redirect_to redis_snippets.snippets_path
+  end
+
+  protected
+
+  def redis_snippets_authenticate_admin_user!
+    if respond_to?(:authenticate_admin_user!)
+      authenticate_admin_user!
+    end
   end
 end
