@@ -1,7 +1,7 @@
-<div id="redis_snippets">
+<div class="redis_snippets">
   <h1>Snippets</h1>
 
-  <%= form_tag '', :method => :put, :class => "formtastic" do |f| %>
+  <%= form_tag '', method: :put, class: "formtastic form-redis_snippets" do |f| %>
     <fieldset class="inputs">
       <ol>
         <% RedisSnippets::Engine.config.redis_snippets[:keys].each do |key| %>
