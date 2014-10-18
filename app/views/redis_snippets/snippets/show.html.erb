@@ -1,20 +1,20 @@
 <div class="redis_snippets">
   <h1>Snippets</h1>
 
-  <%= form_tag '', method: :put, class: "formtastic form-redis_snippets" do |f| %>
-    <fieldset class="inputs">
+  <%= form_tag '', method: :put, class: "form-redis_snippets" do |f| %>
+    <fieldset class="form-redis_snippets-inputs">
       <ol>
         <% RedisSnippets::Engine.config.redis_snippets[:keys].each do |key| %>
-          <li class="text input optional">
-            <%= label_tag key.to_s, key.to_s, class: "label" %>
+          <li class="form-redis_snippets-inputs-text form-redis_snippets-inputs-input form-redis_snippets-inputs-optional">
+            <%= label_tag key.to_s, key.to_s, class: "form-redis_snippets-label" %>
             <%= text_area_tag "snippets[#{key}]", RedisSnippets::Snippets.send(snippet_key(key)), cols: 120, rows: 10 %>
           </li>
         <% end -%>
       </ol>
     </fieldset>
-    <fieldset class="actions">
+    <fieldset class="form-redis_snippets-inputs-actions">
       <ol>
-        <li class="action button_action">
+        <li class="form-redis_snippets-inputs-action form-redis_snippets-inputs-button_action">
           <%= button_tag 'Submit' %>
         </li>
       </ol>
