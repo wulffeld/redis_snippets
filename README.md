@@ -6,7 +6,7 @@ Easily store snippets of content in Redis.
 
 ## How
 
-It's a Rails 3 engine so add redis-snippets to your Gemfile and put this in an initializer:
+It's a Rails engine so add redis-snippets to your Gemfile and put this in an initializer:
 
 ``` ruby
 App::Application.config.redis_snippets = {
@@ -22,6 +22,16 @@ In your views use helper snippet().
 ``` ruby
 <%= snippet(:key1) %>
 ```
+
+### Random snippets
+
+One snippet area can include multiple snippets if you separate them with a
+
+```
+[snippet]
+```
+
+The snippet helper will randomly select the snippet. This is convenient for ad delivery for example.
 
 ## Multi Site
 
