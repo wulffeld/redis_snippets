@@ -28,7 +28,7 @@ In your views use helper snippet().
 One snippet area can include multiple snippets if you separate them with a
 
 ```
-[snippet]
+[section]
 ```
 
 The snippet helper will randomly select the snippet. This is convenient for ad delivery for example.
