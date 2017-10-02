@@ -56,5 +56,6 @@ end
 
 ## Requirements
 
+* rails 5.x or higher
 * redis
 * redis-namespace
