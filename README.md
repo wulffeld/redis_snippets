@@ -2,7 +2,9 @@
 
 ## Background
 
-Easily store snippets of content in Redis.
+Easily store snippets of content in Redis. Inspired by plugin for Wordpress named Snippets.
+
+With redis_snippets you could for instance store ad code like Adsense or other HTML/JS content.
 
 ## How
 
@@ -14,6 +16,8 @@ App::Application.config.redis_snippets = {
   :keys => [:key1, :key2]
 }
 ```
+
+The names of the keys are entirely up to you.
 
 You should then be able to access /admin/snippets/.
 
