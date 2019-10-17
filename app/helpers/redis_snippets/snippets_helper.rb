@@ -24,9 +24,7 @@ module RedisSnippets
     end
 
     def build_snippet(content, classes)
-      content_tag(:div,
-        content.html_safe,
-        :class => classes)
+      content_tag(:div, content.html_safe, class: classes)
     end
   end
 end

@@ -12,8 +12,8 @@ It's a Rails engine so add redis-snippets to your Gemfile and put this in an ini
 
 ``` ruby
 App::Application.config.redis_snippets = {
-  :connection => ::Redis::Namespace.new("my_namespace", :redis => ::Redis.new),
-  :keys => [:key1, :key2]
+  connection: ::Redis::Namespace.new("my_namespace", redis: ::Redis.new),
+  keys: [:key1, :key2]
 }
 ```
 
@@ -43,9 +43,9 @@ If you're using one app to serve multiple sites a little more configuration is n
 
 ``` ruby
 App::Application.config.redis_snippets = {
-  :connection => ::Redis::Namespace.new("my_namespace", :redis => ::Redis.new),
-  :multi_site => true,
-  :keys => [:key1, :key2]
+  connection: ::Redis::Namespace.new("my_namespace", redis: ::Redis.new),
+  multi_site: true,
+  keys: [:key1, :key2]
 }
 ```
 
