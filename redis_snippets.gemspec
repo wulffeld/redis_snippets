@@ -7,9 +7,9 @@ Gem::Specification.new do |spec|
   spec.version       = RedisSnippets::VERSION
   spec.authors       = ["Martin Moen Wulffeld"]
   spec.email         = ["martin@wulffeld.org"]
-  spec.description   = %q{Storing snippets of whatever in Redis.}
-  spec.summary       = %q{Storing snippets of whatever in Redis.}
-  spec.homepage      = "http://www.wulffeld.org/"
+  spec.summary       = %q{Storing snippets of HTML, text, etc. in Redis for use in views.}
+  spec.description   = %q{A Ruby on Rails gem that facilitates fast retrieval of snippets of code or information for views.}
+  spec.homepage      = "https://github.com/wulffeld/redis_snippets"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
