@@ -1,21 +1,10 @@
-require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 
 require File.expand_path('dummy/config/environment', __dir__)
-
 require 'rspec/rails'
-
 require 'redis_snippets'
 
 include RedisSnippets::SnippetsHelper
-
-Rails.application.config.redis_snippets = {
-  connection: MockRedis.new,
-  keys: [
-    :advert_header,
-    :advert_footer
-  ]
-}
 
 Dir[File.expand_path(File.join(File.dirname(__FILE__), 'support', '**', '*.rb'))].each { |f| require f }
 
