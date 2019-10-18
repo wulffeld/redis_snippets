@@ -1,3 +1,4 @@
 *.tmproj
 pkg
 .bundle
+spec/dummy/log
