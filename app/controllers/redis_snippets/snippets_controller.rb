@@ -14,7 +14,6 @@ class RedisSnippets::SnippetsController < ApplicationController
 
   def update
     params[:snippets].each do |key, content|
-      raise "#{key} not in the specified keys." unless RedisSnippets::Engine.config.redis_snippets[:keys].include?(key.to_sym)
       RedisSnippets::Snippets.update(snippet_key(key), params[:snippets][key])
     end
 
