@@ -19,7 +19,7 @@ module RedisSnippets
       build_snippet(snippets[rand(snippets.length)], snippet_class_list(snippet_name, classes))
     end
 
-    def snippet_class_list(snippet_name, classes)
+    def snippet_class_list(snippet_name, classes = nil)
       [
         'snippet',
         snippet_name.to_s,
