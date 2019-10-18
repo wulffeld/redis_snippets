@@ -1,6 +1,6 @@
 module RedisSnippets
-  module Help
-    # If multi_site => true the symbol returned will have the key returned with a prefix.
+  module Util
+    # If multi_site is true the symbol returned will have the key returned with a prefix.
     # This prefix is defined in your application using the redis_snippet_site_key method.
     # redis_snippet_site_key should simply return a unique string per site. For instance
     # it could be the domain of the site.

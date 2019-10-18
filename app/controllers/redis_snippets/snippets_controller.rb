@@ -1,5 +1,5 @@
 class RedisSnippets::SnippetsController < ApplicationController
-  include RedisSnippets::Help
+  include RedisSnippets::Util
 
   # Temporary fix for Rails 6.0 support. Rendering views doesn't have access
   # to the apps routes unless we include them.
