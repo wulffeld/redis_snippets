@@ -11,7 +11,7 @@ module RedisSnippets
       !snippet_content(snippet_name).blank?
     end
 
-    def snippet(snippet_name, classes=nil)
+    def snippet(snippet_name, classes = nil)
       return '' if controller.status == 404
       snippet = snippet_content(snippet_name)
       return '' if snippet.blank?
@@ -20,7 +20,11 @@ module RedisSnippets
     end
 
     def snippet_class_list(snippet_name, classes)
-      ['snippet', classes || snippet_name.to_s].compact.join(' ').html_safe
+      [
+        'snippet',
+        snippet_name.to_s,
+        *classes
+      ].reject(&:blank?).join(' ').html_safe
     end
 
     def build_snippet(content, classes)
