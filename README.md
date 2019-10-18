@@ -2,16 +2,19 @@
 
 ## Background
 
-Easily store snippets of content in Redis. Inspired by plugin for Wordpress named Snippets.
+Easily store snippets of content in Redis. Inspired by plugin for Wordpress
+named Snippets.
 
-With redis_snippets you could for instance store ad code like Adsense or other HTML/JS content.
+With redis_snippets you could for instance store AdSense code snippets or
+other HTML/JS content.
 
 ## How
 
-It's a Rails engine so add redis-snippets to your Gemfile and put this in an initializer:
+It's a Rails engine so add redis-snippets to your Gemfile and put this in an
+initializer:
 
 ``` ruby
-App::Application.config.redis_snippets = {
+Rails.application.config.redis_snippets = {
   connection: ::Redis::Namespace.new("my_namespace", redis: ::Redis.new),
   keys: [:key1, :key2]
 }
@@ -35,14 +38,15 @@ One snippet area can include multiple snippets if you separate them with a
 [section]
 ```
 
-The snippet helper will randomly select the snippet. This is convenient for ad delivery for example.
+The snippet helper will randomly select the snippet. This is convenient for ad
+delivery or perhaps A/B testing 🤷‍♂.
 
 ## Multi Site
 
 If you're using one app to serve multiple sites a little more configuration is necessary.
 
 ``` ruby
-App::Application.config.redis_snippets = {
+Rails.application.config.redis_snippets = {
   connection: ::Redis::Namespace.new("my_namespace", redis: ::Redis.new),
   multi_site: true,
   keys: [:key1, :key2]
