@@ -12,7 +12,6 @@ module RedisSnippets
     end
 
     def snippet(snippet_name, classes = nil)
-      return '' if controller.status == 404
       snippet = snippet_content(snippet_name)
       return '' if snippet.blank?
       snippets = snippet.split("[section]")
