@@ -1,17 +1,8 @@
 require 'rails_helper'
 
 describe "RedisSnippets::SnippetsHelper", type: :helper do
-  let(:code) { "<p>Hello world.</p>" }
-
-  describe "#snippet_content" do
-    before do
-      RedisSnippets::Snippets.update(snippet_key(:advert_header), code)
-    end
-
-    it "returns the content" do
-      expect(snippet_content(:advert_header)).to eq(code)
-    end
-  end
+  let(:code) { "<p>Buy this from Amazon.</p>" }
+  let(:view) { ActionController::Base.new.view_context }
 
   describe "#snippet_has_content?" do
     before do
@@ -27,17 +18,21 @@ describe "RedisSnippets::SnippetsHelper", type: :helper do
     end
   end
 
-  describe "#snippet_class_list" do
+  describe "#snippet" do
+    before do
+      RedisSnippets::Snippets.update(snippet_key(:advert_header), code)
+    end
+
     it "adds the snippet key as the class" do
-      expect(snippet_class_list(:advert_header)).to eq("snippet advert_header")
+      expect(snippet(:advert_header)).to eq("<div class=\"snippet advert_header\"><p>Buy this from Amazon.</p></div>")
     end
 
     it "adds more classes from a string" do
-      expect(snippet_class_list(:advert_header, "advert-responsive")).to eq("snippet advert_header advert-responsive")
+      expect(snippet(:advert_header, "advert-responsive")).to eq("<div class=\"snippet advert_header advert-responsive\"><p>Buy this from Amazon.</p></div>")
     end
 
     it "adds more classes from an array" do
-      expect(snippet_class_list(:advert_header, ["advert-responsive", "p-4"])).to eq("snippet advert_header advert-responsive p-4")
+      expect(snippet(:advert_header, ["advert-responsive", "p-4"])).to eq("<div class=\"snippet advert_header advert-responsive p-4\"><p>Buy this from Amazon.</p></div>")
     end
   end
 end
