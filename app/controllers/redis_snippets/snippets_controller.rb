@@ -14,7 +14,7 @@ class RedisSnippets::SnippetsController < ApplicationController
 
   def update
     params[:snippets].each do |key, content|
-      RedisSnippets::Snippets.update(snippet_key(key), params[:snippets][key])
+      SnippetStoreService.update(snippet_key(key), params[:snippets][key])
     end
 
     flash[:notice] = 'Snippets updated.'

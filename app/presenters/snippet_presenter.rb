@@ -22,7 +22,7 @@ class SnippetPresenter
   def prepare_snippet
     @snippet = ""
 
-    if content = RedisSnippets::Snippets.send(snippet_key(@key))
+    if content = SnippetStoreService.send(snippet_key(@key))
       snippets = content.split("#{SECTION_DELIMITER}")
       @snippet = random_snippet(content)
     end

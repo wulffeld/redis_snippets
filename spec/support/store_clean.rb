@@ -1,7 +1,7 @@
 RSpec.configure do |config|
   def clean_keys!
     RedisSnippets::Engine.config.redis_snippets[:keys].each do |key|
-      RedisSnippets::Snippets.del(key)
+      SnippetStoreService.del(key)
     end
   end
 

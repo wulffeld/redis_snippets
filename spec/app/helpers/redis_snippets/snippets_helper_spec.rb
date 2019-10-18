@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-describe "RedisSnippets::SnippetsHelper", type: :helper do
+describe RedisSnippets::SnippetsHelper, type: :helper do
   let(:code) { "<p>Buy this from Amazon.</p>" }
   let(:view) { ActionController::Base.new.view_context }
 
   describe "#snippet_has_content?" do
     before do
-      RedisSnippets::Snippets.update(snippet_key(:advert_header), code)
+      SnippetStoreService.update(snippet_key(:advert_header), code)
     end
 
     it "returns true if there's content in the snippet" do
@@ -20,7 +20,7 @@ describe "RedisSnippets::SnippetsHelper", type: :helper do
 
   describe "#snippet" do
     before do
-      RedisSnippets::Snippets.update(snippet_key(:advert_header), code)
+      SnippetStoreService.update(snippet_key(:advert_header), code)
     end
 
     it "adds the snippet key as the class" do

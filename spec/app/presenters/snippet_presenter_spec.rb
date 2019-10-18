@@ -16,7 +16,7 @@ HEREDOC
 
   describe "#call" do
     before do
-      RedisSnippets::Snippets.update(snippet_key(:advert_header), code)
+      SnippetStoreService.update(snippet_key(:advert_header), code)
     end
 
     it "renders the content" do
@@ -40,7 +40,7 @@ HEREDOC
 
   describe ".random_snippet" do
     before do
-      RedisSnippets::Snippets.update(snippet_key(:advert_header), multiple_adverts)
+      SnippetStoreService.update(snippet_key(:advert_header), multiple_adverts)
     end
 
     it "returns one of the sections" do

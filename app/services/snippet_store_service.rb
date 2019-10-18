@@ -1,4 +1,4 @@
-class RedisSnippets::Snippets
+class SnippetStoreService
   class << self
     def update(key, content)
       ensure_key_is_defined!(key)

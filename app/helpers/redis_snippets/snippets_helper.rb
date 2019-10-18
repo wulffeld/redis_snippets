@@ -4,7 +4,7 @@ module RedisSnippets
 
     # Return true if snippet has content.
     def snippet_has_content?(key)
-      !RedisSnippets::Snippets.send(snippet_key(key)).blank?
+      !SnippetStoreService.send(snippet_key(key)).blank?
     end
 
     def snippet(key, classes = nil)
