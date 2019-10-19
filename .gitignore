@@ -1,4 +1,4 @@
-*.tmproj
-pkg
 .bundle
+pkg
 spec/dummy/log
+Gemfile.lock
