@@ -8,4 +8,5 @@ end
 
 group :test do
   gem "mock_redis"
+  gem "simplecov"
 end

@@ -2,3 +2,4 @@
 pkg
 spec/dummy/log
 Gemfile.lock
+coverage
