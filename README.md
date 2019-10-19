@@ -1,5 +1,10 @@
 # Redis Snippets
 
+[![Version](https://img.shields.io/gem/v/redis_snippets.svg?style=flat-square)](https://rubygems.org/gems/redis_snippets)
+[![Build](https://img.shields.io/travis/wulffeld/redis_snippets.svg?style=flat-square)](https://travis-ci.org/wulffeld/redis_snippets)
+[![Maintainability](https://img.shields.io/codeclimate/maintainability/wulffeld/redis_snippets?style=flat-square)](https://codeclimate.com/github/wulffeld/redis_snippets)
+[![Coverage](https://img.shields.io/codeclimate/coverage/wulffeld/redis_snippets?style=flat-square)](https://coveralls.io/r/wulffeld/redis_snippets)
+
 ## Background
 
 Easily store snippets of content in Redis. Inspired by plugin for Wordpress
@@ -8,7 +13,23 @@ named Snippets.
 With redis_snippets you could for instance store AdSense code snippets or
 other HTML/JS content.
 
-## How
+## Requirements
+
+Gems:
+
+* rails 5.x or higher
+* redis
+* redis-namespace
+
+## Installation
+
+Add to your Rails projects Gemfile and bundle install:
+
+```
+gem "redis_snippets"
+```
+
+## Usage
 
 It's a Rails engine so add redis-snippets to your Gemfile and put this in an
 initializer:
@@ -61,9 +82,3 @@ def redis_snippet_site_key
   request.host
 end
 ```
-
-## Requirements
-
-* rails 5.x or higher
-* redis
-* redis-namespace
