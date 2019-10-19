@@ -8,7 +8,13 @@ require 'redis_snippets'
 
 include RedisSnippets::SnippetsHelper
 
-Dir[File.expand_path(File.join(File.dirname(__FILE__), 'support', '**', '*.rb'))].each { |f| require f }
+Rails.application.config.redis_snippets = {
+  connection: MockRedis.new,
+  keys: [
+    :advert_header,
+    :advert_footer
+  ]
+}
 
 RSpec.configure do |config|
   # RSpec Rails can automatically mix in different behaviours to your tests
@@ -30,4 +36,18 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  def clean_keys!
+    RedisSnippets::Engine.config.redis_snippets[:keys].each do |key|
+      SnippetStoreService.del(key)
+    end
+  end
+
+  config.before(:each) do
+    clean_keys!
+  end
+
+  config.after(:each) do
+    clean_keys!
+  end
 end
