@@ -3,7 +3,7 @@
 [![Version](https://img.shields.io/gem/v/redis_snippets.svg?style=flat-square)](https://rubygems.org/gems/redis_snippets)
 [![Build](https://img.shields.io/travis/wulffeld/redis_snippets.svg?style=flat-square)](https://travis-ci.org/wulffeld/redis_snippets)
 [![Maintainability](https://img.shields.io/codeclimate/maintainability/wulffeld/redis_snippets?style=flat-square)](https://codeclimate.com/github/wulffeld/redis_snippets)
-[![Coverage](https://img.shields.io/codeclimate/coverage/wulffeld/redis_snippets?style=flat-square)](https://coveralls.io/r/wulffeld/redis_snippets)
+[![Coverage](https://img.shields.io/codeclimate/coverage/wulffeld/redis_snippets?style=flat-square)](https://codeclimate.com/github/wulffeld/redis_snippets)
 
 ## Background
 
