@@ -64,13 +64,55 @@ delivery or perhaps A/B testing 🤷‍♂.
 
 ## Multi Site
 
-If you're using one app to serve multiple sites a little more configuration is necessary.
+If you're using one app to serve multiple sites a little more configuration is
+necessary.
 
 ``` ruby
 Rails.application.config.redis_snippets = {
   connection: ::Redis::Namespace.new("my_namespace", redis: ::Redis.new),
   multi_site: true,
-  keys: [:key1, :key2]
+  keys: [:key1, :key2],
+  transform: "MySnippetTransform"
+}
+```
+
+## Transforming Snippets
+
+Sometimes you might want to transform snippets. This happens after
+randomization so you get the actual snippet content to be rendered passed to
+your transform class.
+
+The transform class must respond to .transforms? and #transform. Example:
+
+``` ruby
+class MySnippetTransform
+  def initialize(content:, key:)
+    @content = content
+    @key = key
+  end
+
+  # Must return content.
+  def transform
+    @content.gsub("Amazon", "Etsy")
+  end
+
+  class << self
+    def transforms?(key:)
+      key == :advert_header
+    end
+  end
+end
+```
+
+I personally use this to insert special CSS code for AdSense. This saves me
+from having to do this manually whenever I update it or add it.
+
+``` ruby
+Rails.application.config.redis_snippets = {
+  connection: ::Redis::Namespace.new("my_namespace", redis: ::Redis.new),
+  multi_site: true,
+  keys: [:key1, :key2],
+  transform: "MySnippetTransform"
 }
 ```
 

@@ -13,7 +13,8 @@ Rails.application.config.redis_snippets = {
   keys: [
     :advert_header,
     :advert_footer
-  ]
+  ],
+  transform: -> { ENV['TRANSFORM'] ? "Transformer" : nil }
 }
 
 RSpec.configure do |config|

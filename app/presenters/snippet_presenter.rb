@@ -22,9 +22,13 @@ class SnippetPresenter
   def prepare_snippet
     @snippet = ""
 
-    if content = SnippetStoreService.send(snippet_key(@key))
-      snippets = content.split("#{SECTION_DELIMITER}")
-      @snippet = random_snippet(content)
+    return unless content = SnippetStoreService.send(snippet_key(@key))
+
+    snippets = content.split("#{SECTION_DELIMITER}")
+    @snippet = random_snippet(content)
+
+    if transform_class && transform_class.transforms?(key: @key)
+      @snippet = transform_class.new(content: @snippet, key: @key).transform
     end
   end
 
@@ -43,6 +47,15 @@ class SnippetPresenter
     else
       @view.content_tag(:div, @snippet.html_safe, class: snippet_class_list)
     end
+  end
+
+  def transform_class
+    @klass ||=
+      if RedisSnippets::Engine.config.redis_snippets[:transform].is_a?(Proc)
+        klass = RedisSnippets::Engine.config.redis_snippets[:transform].call and klass.constantize
+      else
+        RedisSnippets::Engine.config.redis_snippets[:transform] and RedisSnippets::Engine.config.redis_snippets[:transform].constantize
+      end
   end
 
   class << self
