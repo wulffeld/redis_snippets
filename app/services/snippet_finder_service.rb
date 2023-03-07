@@ -8,7 +8,7 @@ class SnippetFinderService
   end
 
   def call
-    SnippetStoreService.send(snippet_key(@key))
+    self.class.random_snippet(SnippetStoreService.send(snippet_key(@key)))
   end
 
   protected
