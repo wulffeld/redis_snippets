@@ -8,7 +8,9 @@ module RedisSnippets
     end
 
     def snippet(key, classes = nil)
-      SnippetPresenter.new(view: self, key: key, classes: classes).call
+      snippet = SnippetFinderService.new(key: key).call
+      return unless snippet
+      SnippetPresenter.new(view: self, key: key, snippet: snippet, classes: classes).call
     end
   end
 end
