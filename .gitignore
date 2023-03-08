@@ -1,5 +1,4 @@
 .bundle
+coverage
 pkg
 spec/dummy/log
-Gemfile.lock
-coverage
