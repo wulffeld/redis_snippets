@@ -1,7 +1,7 @@
 # Redis Snippets
 
 [![Version](https://img.shields.io/gem/v/redis_snippets.svg?style=flat-square)](https://rubygems.org/gems/redis_snippets)
-[![Build Status](https://github.com/wulffeld/redis_snippets/workflows/CI/badge.svg)](https://github.com/wulffeld/redis_snippets/actions?query=branch%3Amain)
+[![Ruby](https://github.com/wulffeld/redis_snippets/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/wulffeld/redis_snippets/actions/workflows/ci.yml)
 [![Maintainability](https://img.shields.io/codeclimate/maintainability/wulffeld/redis_snippets?style=flat-square)](https://codeclimate.com/github/wulffeld/redis_snippets)
 [![Coverage](https://img.shields.io/codeclimate/coverage/wulffeld/redis_snippets?style=flat-square)](https://codeclimate.com/github/wulffeld/redis_snippets)
 
