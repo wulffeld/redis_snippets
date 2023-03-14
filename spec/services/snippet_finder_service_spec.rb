@@ -23,13 +23,20 @@ HEREDOC
   end
 
   describe ".random_snippet" do
-    before do
-      SnippetStoreService.update(snippet_key(:advert_header), multiple_adverts)
+    context "with multiple sections" do
+      before do
+        SnippetStoreService.update(snippet_key(:advert_header), multiple_adverts)
+      end
+
+      it "returns one of the sections" do
+        expect(described_class).to receive(:rand).and_return(0)
+        expect(described_class.random_snippet(multiple_adverts)).to eq("<p>Buy this from Amazon.</p>\n")
+      end
     end
 
-    it "returns one of the sections" do
-      expect(described_class).to receive(:rand).and_return(0)
-      expect(described_class.random_snippet(multiple_adverts)).to eq("<p>Buy this from Amazon.</p>\n")
+    it "returns a blank string" do
+      expect(described_class).to_not receive(:rand)
+      expect(described_class.random_snippet(nil)).to eq("")
     end
   end
 end

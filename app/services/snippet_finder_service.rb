@@ -15,6 +15,8 @@ class SnippetFinderService
 
   class << self
     def random_snippet(content)
+      return "" if content.blank?
+
       snippets = content.split("#{SECTION_DELIMITER}").map { |section| section.gsub(/^\n/, "") }
       snippets[rand(snippets.length)]
     end
