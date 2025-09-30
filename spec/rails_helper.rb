@@ -1,7 +1,5 @@
 ENV['RAILS_ENV'] ||= 'test'
 
-require 'support/simplecov_setup'
-
 require File.expand_path('dummy/config/environment', __dir__)
 require 'rspec/rails'
 require 'redis_snippets'
